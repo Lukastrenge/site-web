@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vols disponibles</title>
+</head>
+<body>
+
+<h1>Nos vols ✈️</h1>
+<div id="vols"></div>
+
+<script>
+fetch("URL_DE_TON_API")
+  .then(res => res.json())
+  .then(vols => {
+    const container = document.getElementById("vols");
+    vols.forEach(vol => {
+      container.innerHTML += `
+        <div>
+          <h3>${vol.titre}</h3>
+          <p>${vol.description}</p>
+          <strong>${vol.prix} €</strong>
+        </div>
+      `;
+    });
+  });
+</script>
+
+</body>
+</html>
