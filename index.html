@@ -7,20 +7,21 @@
 <body>
 
 <h1>Nos vols ✈️</h1>
-<p> Bonsoir</p>
 <div id="vols"></div>
 
 <script>
 fetch("https://script.google.com/macros/s/AKfycbw4yAzQdyi5csiekRQ52LB15z9IGV3dcf3ei43s_WL_rHrGCgMcdAaXyiISQudlwEWe/exec")
   .then(res => res.json())
-  .then(vols => {
+  .then(data => {
     const container = document.getElementById("vols");
-    vols.forEach(vol => {
+    container.innerHTML = "";
+
+    data.forEach(vol => {
       container.innerHTML += `
         <div>
-          <h3>${vol.date}</h3>
-          <p>${vol.pilote}</p>
-          <strong>${vol.cargo} €</strong>
+          <h3>${vol.titre}</h3>
+          <p>${vol.description}</p>
+          <strong>${vol.prix} €</strong>
         </div>
       `;
     });
