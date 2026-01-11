@@ -14,8 +14,7 @@ fetch("https://script.google.com/macros/s/AKfycbw4yAzQdyi5csiekRQ52LB15z9IGV3dcf
   .then(res => res.json())
   .then(data => {
     console.log("OK", data);
-  })
-  .catch(err => console.error(err));
+
     const container = document.getElementById("vols");
     container.innerHTML = "";
 
@@ -28,7 +27,8 @@ fetch("https://script.google.com/macros/s/AKfycbw4yAzQdyi5csiekRQ52LB15z9IGV3dcf
         </div>
       `;
     });
-  });
+  })
+  .catch(err => console.error("FETCH ERROR:", err));
 </script>
 
 </body>
